@@ -1,0 +1,105 @@
+:root {
+  --plum: rgb(53, 4, 62);
+  --cranberry: rgb(56, 5, 30);
+}
+
+* {
+  margin: 0px;
+}
+
+#favicon {
+  width: 55px; 
+  animation: rotateFavicon 1.5s infinite linear alternate; /* Continuous rotation animation */
+}
+
+@keyframes rotateFavicon {
+  50% {
+    transform: rotateY(180deg); /* Flips the favicon halfway */
+  }
+  100% {
+    transform: rotate(30deg); /* Slight tilt at the end of the animation */
+    opacity: 30%; /* Fades out the favicon */
+  }
+}
+
+#startButton {
+  width: 150px; /* Button width */
+  height: 45px; /* Button height */
+  background-color: rgb(161, 111, 209); /* Light purple background */
+  border-radius: 5px; /* Rounded corners */
+  color: rgb(85, 45, 112); /* Button text color */
+  text-align: center; /* Center text horizontally */
+  text-decoration: none; /* Removes underline from links */
+  padding: 5px; 
+  margin-top: 50px;
+  font-size: large; 
+  box-shadow: inset 0px -6px 0px rgba(27, 24, 24, 0.349); /* Shadow for a pressed effect */
+  text-transform: uppercase; /* Capitalizes all letters */
+  font-family: monospace; /* Monospace font for a classic look */
+  font-weight: 600;
+  display: flex; 
+  align-items: center;
+  justify-content: center; /* Center text horizontally */
+  animation: hover 2s infinite alternate; /* Smooth hover animation */
+}
+
+/* Hover effect for the start button:
+   - Changes text color when hovered over.
+*/
+#startButton:hover {
+  color: whitesmoke; /* Text becomes lighter on hover */
+}
+
+/* Keyframes for hover animation:
+   - Moves the button up and down smoothly.
+   - Creates a floating effect.
+*/
+@keyframes hover {
+  100% {
+    transform: translateY(50px); /* Moves the button down 50px */
+  }
+}
+#container {
+  /* background-color: rgb(56, 5, 51); */
+  display: flex;
+  flex-direction: row;
+}
+
+#game-inventory {
+  display: flex;
+  background-color: var(--cranberry);
+  width: 150px;
+  height: 100vh; 
+  flex-direction: column;
+  position: relative;
+  padding: 10px;
+  padding-top: 90px;
+  align-items: end;
+  justify-content: right;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.526);
+}
+#game-space {
+  background-color: var(--plum);
+  width: 85%;
+}
+
+#game-settings {
+  background-color: var(--plum);
+}
+
+.element {
+  width: 100px;
+  height: 100px;
+  background-color: rgba(176, 108, 176, 0.045);
+  position: absolute;
+  border-radius: 2px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  display: flex;
+  flex-direction: column-reverse;
+  text-align: center;
+  font-family: arial;
+  color: rgba(255, 217, 0, 0.637);
+  box-shadow: 0px 0px 5px rgba(30, 28, 28, 0.663);
+}
