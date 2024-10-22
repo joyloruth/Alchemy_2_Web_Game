@@ -1,5 +1,6 @@
 import { Element, createdElements } from "./element.js";
 
+/*shows list of elements */
 let gameInventory = document.getElementById("game-inventory");
 let gameSpace = document.getElementById("game-space");
 
