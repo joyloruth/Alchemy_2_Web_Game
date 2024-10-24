@@ -13,7 +13,7 @@ export class Element {
     this.element.setAttribute("id", id);
     this.element.innerText = name;
     this.element.style.backgroundImage =
-      "url('assets/images/" + bkgImg + ".png')";
+      "url('/assets/images/" + bkgImg + ".png')";
     this.element.style.top = top;
     this.element.className = "element";
 

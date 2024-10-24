@@ -1,8 +1,6 @@
 import { Element, createdElements } from "./element.js";
 
-/*shows list of elements */
-let gameInventory = document.getElementById("game-inventory");
-let gameSpace = document.getElementById("game-space");
+let gameInvent = document.getElementById("game-inventory");
 
 let primaryElements = [
   { id: "air", name: "air", bkgImg: "air", top: "40px" },
@@ -18,7 +16,7 @@ primaryElements.forEach((primaryElement) => {
     primaryElement.bkgImg,
     primaryElement.top
   );
-  gameInventory.appendChild(createdElements[primaryElement.id]);
+  gameInvent.appendChild(createdElements[primaryElement.id]);
 });
 
 function checkCollision(element1, element2) {

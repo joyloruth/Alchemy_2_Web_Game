@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alchemy Quest</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/images/formula.png" />
+
+    <!-- Style sheets/ CSS & Fonts -->
+    <link rel="stylesheet" href="/styles/fonts/fonts.css" />
+    <link rel="stylesheet" href="/styles/loader.css" />
+    
+  </head>
+  <body>
+    <div id="container">
+      <div id="loader">
+        <audio id="popping-sound">
+          <source src="/assets/sounds/popping.mp3" type="audio/mp3">
+        </audio>
+        <div id="loader-images">
+          <img src="/assets/images/fire.png" class="loader-image" />
+          <img src="/assets/images/earth.png" class="loader-image" />
+          <img src="/assets/images/air.png" class="loader-image" />
+        </div>
+      </div>
+      <img src="/assets/images/formula.png" id="favicon" />
+      <br>
+      <h1 id="title">Alchemy<br><span>Quest</span></h1>
+      <div id="start-button"></div>    
+      <!-- <a href="game-play.html" id="start-button">start game</a> -->
+    </div>
+    <script type="module" src="/scripts/loader.js"></script>
+  </body>
+</html>
