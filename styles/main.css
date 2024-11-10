@@ -1,0 +1,153 @@
+:root {
+  --blue: #38b6ff;
+  --cranberry: blueviolet;
+  --pega: rgb(49, 13, 80);
+  --element_height: 100px;
+  --element_width: 100px;
+}
+
+* {
+  margin: 0px;
+  background-color: var(--pega);
+}
+
+#wrapper{
+  display: flex;
+  flex-direction: row;
+}
+
+#game-inventory {
+  background-color: var(--cranberry);
+  width: var(--element_width);
+  padding: 10px;
+  width: 130px;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  box-shadow: 3px 3px 3px black;
+  scrollbar-color: var(--cranberry) !important;
+  border: 2px solid black;
+}
+
+#game-inventory::-webkit-scrollbar {
+  width: 8px;
+}
+#game-inventory::-webkit-scrollbar-track {
+  background-color: var(--cranberry);
+}
+#game-inventory::-webkit-scrollbar-thumb {
+  background-color: var(--blue);
+  border-radius: 4px;
+  box-shadow: 3px 3px 3px black;
+  border: 2px solid black;
+}
+
+#game-space {
+  /* background-color: var(--pega); */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+#containers{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.element-container {
+  width: calc(var(--element_width) - 5px);
+  height: calc(var(--element_height) - 5px);
+  background-color: var(--cranberry);
+  border-radius: 10px;
+  margin: 10px;
+  border: 2px solid black;
+  box-shadow: inset 5px 5px rgba(0, 0, 0, 0.534);
+}
+
+.element{
+  width: var(--element_width);
+  height: var(--element_height) !important;
+  background-color: var(--blue);
+  display: flex;
+  font-size: small;
+  font-family: dynapuff;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column-reverse;
+  color: rgb(15, 15, 14);
+  margin-top: 10px;
+  background-size: 50px;
+  text-align: center;
+  border-radius: 10px;
+  border: solid 2px black;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.534);
+}
+
+element.dragging {
+  transition: all 0.3s linear;
+  font-family: arial;
+  background-color: aqua;
+}
+
+.element.holding {
+  font-family: dynapuff;
+  background-color: rgba(128, 0, 128, 0);
+  margin-top: 0px;
+  transition: all 1s ease-in;
+  box-shadow: none;
+  scale:1;
+  border: none;
+  background-size: 70px;
+  font-size: 1px;
+}
+
+#plus {
+  color: var(--blue);
+  color: rgb(237, 221, 248);
+  font-weight: 600;
+  font-size: 40px;
+  font-family: dynapuff;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #0a1217;
+}
+
+#element-discovered{
+  background-color: rgb(240, 248, 255);
+  width: 250px;
+  height: 200px;
+  border-radius: 10px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  z-index: 9;
+  position: absolute;
+  top:25%;
+
+}
+#element-discovered #name{
+  color: white;
+  font-size: 28px;
+  font-family: dynapuff;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #0a1217;
+  text-transform: capitalize;
+  text-align: center;
+  background-color: inherit;
+}
+#element-discovered #image{
+  background-position: center;
+  background-repeat: no-repeat;
+  text-transform: capitalize;
+  text-align: center;
+  background-color: inherit;
+  width: var(--element_width);
+  height: var(--element_height);
+}

@@ -1,0 +1,53 @@
+/* -KEYFRAMES FOR loader.html */
+
+/* Rotates loader logo */
+@keyframes rotateLoaderLogo {
+  100% {
+    transform: rotate(70deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+}
+
+/* Creates a floating effect. */
+@keyframes floatingEffect{
+  100% {
+    transform: translateY(20px);
+  }
+}
+
+/* Calls loader animation */
+@keyframes mix {
+  0% {
+    transform: translate(0%);
+    transform: scale(0);
+  }
+  100% {
+    transform: translate(100%);
+    transform: scale(1);
+    border-radius: 100%;
+    padding: 5px;
+    border: 2px solid rgba(10, 10, 10, 0.94);
+  }
+}
+
+/* fades in loader screen */
+@keyframes fade-In-Loader {
+  0% {
+    background-color: black;
+  }
+  100% {
+    background-color: blueviolet;
+  }
+}
+
+/* fades out loader screen */
+@keyframes fade-Out-Loader {
+  0% {
+  }
+  100% {
+    width: 0px;
+    display: none;
+  }
+}

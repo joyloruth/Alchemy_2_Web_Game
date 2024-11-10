@@ -16,7 +16,7 @@
 
 #favicon {
   width: 55px;
-  animation: rotateFavicon 2s infinite linear alternate;
+  animation: rotateLoaderLogo 2s infinite linear alternate;
 }
 #title {
   color: var(--blue);
@@ -98,58 +98,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: hover 2s infinite alternate;
+  animation: floatingEffect 2s infinite alternate;
   transition: all .5s ease-in-out;
-  /* -webkit-text-stroke-width: 2px; */
-  /* -webkit-text-stroke-color: #0a1217; */
 }
+
 #start-button:hover {
   color: whitesmoke;
 }
 
-/*animations*/
-@keyframes rotateFavicon {
-  100% {
-    transform: rotate(70deg);
-    /* opacity: 30%; */
-  }
-  50% {
-    transform: rotateY(180deg);
-  }
-}
-@keyframes hover {
-  100% {
-    transform: translateY(20px);
-  }
-}
-@keyframes mix {
-  0% {
-    transform: translate(0%);
-    transform: scale(0);
-  }
-  100% {
-    /* background-color: rgba(255, 255, 255, 0.168); */
-    transform: translate(100%);
-    transform: scale(1);
-    border-radius: 100%;
-    padding: 5px;
-    border:2px solid rgba(10, 10, 10, 0.94);
-    /* border: 2px black solid; */
-  }
-}
-@keyframes fade-In-Loader {
-  0% {
-    background-color: black;
-  }
-  100% {
-    background-color: blueviolet;
-  }
-}
-@keyframes fade-Out-Loader {
-  0% {
-  }
-  100% {
-    width: 0px;
-    display: none;
-  }
-}
+
+

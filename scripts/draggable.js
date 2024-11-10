@@ -24,15 +24,14 @@ export function makeDraggable(element){
 
       element.style.left = element.offsetLeft - endX + "px";
       element.style.top = element.offsetTop - endY + "px";
+
+      element.addEventListener("click",()=>{
+        console.log("TEST")
+      })
     }
 
     function mouseUp(e) {
       document.removeEventListener("mousemove", mouseMove);
       document.removeEventListener("mouseup",mouseUp)
-      // Object.values(createdElements).forEach(otherElement => {
-      //   if (element !== otherElement && checkCollision(element, otherElement)) {
-      //     createNewElement(element, otherElement);
-      //   }
-      // });
     }
   };

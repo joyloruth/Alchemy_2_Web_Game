@@ -31,5 +31,5 @@ startButton.innerHTML = "start game";
 startButton.addEventListener("click", startGame);
 
 function startGame() {
-  window.location.replace("game-play.html");
+  window.location.replace("main.html");
 }

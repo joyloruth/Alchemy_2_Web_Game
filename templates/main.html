@@ -7,14 +7,25 @@
     <title>Alchemy Quest</title>
     <link rel="icon" type="image/x-icon" href="/assets/images/formula.png" />
     <link rel="stylesheet" href="/styles/fonts/fonts.css" />
-    <link rel="stylesheet" href="/styles/game-play.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/styles/settings.css" />
   </head>
   <body>
-    <div id="container">
+    <div id="wrapper">
       <!-- holds lists elements -->
-      <div id="game-inventory"></div>
-      <div id="game-space"></div>
+      <div id="game-inventory">
+      </div>
+      <div id="game-space">
+        <div id="containers">
+          <div id="one" class="element-container"></div>
+          <p id="plus">+</p>
+          <div id="two" class="element-container"></div>
+        </div>
+        <div id="element-discovered">
+          <div id="name"></div>
+          <div id="image"></div>
+        </div>
+      </div>
       <div id="game-settings">
         <audio id="background-music">
           <source src="/assets/sounds/bkg-music.wav" type="audio/wav" />
@@ -22,6 +33,7 @@
       </div>
     </div>
   </body>
-  <script type="module" src="/scripts/game-play.js"></script>
+  <script type="module" src="/scripts/main.js"></script>
   <script type="module" src="/scripts/settings.js"></script>
+  <script type="module" src="/scripts/toggle.js"></script>
 </html>
