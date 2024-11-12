@@ -12,8 +12,12 @@
 
 /* Creates a floating effect. */
 @keyframes floatingEffect{
-  100% {
+  0% {
     transform: translateY(20px);
+    filter: drop-shadow(3px 3px 30px rgba(255, 217, 0, 0.148));
+  }
+  100%{
+    filter: drop-shadow(3px 3px 3px gold);
   }
 }
 

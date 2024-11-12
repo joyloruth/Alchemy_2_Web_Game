@@ -1,5 +1,7 @@
-import { gameInventory,gameSpace} from "./main.js";
-import { gameSettings} from "./settings.js";
+import { gameInventory, gamePlay} from "./main.js";
+
+import { gameSettings} from "./utilites.js";
+
 
 /*Toggles Day and Night Mode */
 let themeToggle = document.createElement("div");
@@ -22,12 +24,13 @@ gameSettings.appendChild(themeToggle);
 function viewDayMode() {
   dayMode.style.display = "none";
   nightMode.style.display = "flex";
-  gameSettings.style.backgroundColor = "#3b3b3b";
+  gameSettings.style.backgroundColor = "#310d50";
   gameSettings.style.boxShadow = "1px 1px 10px black";
-  gameSpace.style.backgroundColor = "	#222222";
+  gamePlay.style.backgroundColor = "#8a2be2";
   gameSettings.style.transition = "all 1s ease-in";
-  gameSpace.style.transition = "all 1s ease-in ";
-  gameInventory.style.backgroundColor = "#222222";
+  gamePlay.style.transition = "all 1s ease-in ";
+  // gameInventory.style.backgroundColor = "yellow";
+  gameInventory.style.backgroundColor = "#38b6ff";
   gameInventory.style.boxShadow = "1px 1px 10px black";
 }
 
@@ -35,10 +38,13 @@ function viewNightMode() {
   nightMode.style.display = "none";
   dayMode.style.display = "flex";
   dayMode.style.transition = "all 1s ease-out";
-  gameSettings.style.backgroundColor = "inherit";
-  gameSpace.style.backgroundColor = "inherit";
+  gameSettings.style.backgroundColor = "black";
+  gamePlay.style.backgroundColor = "#202020";
+  gameSettings.style.boxShadow = "1px 1px 10px gold";
   gameSettings.style.transition = "all 1s ease-in";
-  gameSpace.style.transition = "all 1s ease-in";
-  gameInventory.style.backgroundColor = "inherit";
+  gamePlay.style.transition = "all 1s ease-in";
+  gameInventory.style.backgroundColor = "black";
+  // gameInventory.style.backgroundColor = "black";
   gameInventory.style.transition = "all .5s ease-in";
+  gameInventory.style.boxShadow = "1px 1px 5px gold";
 }

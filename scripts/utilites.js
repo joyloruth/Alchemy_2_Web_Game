@@ -1,7 +1,9 @@
-import {gameSpace} from "./main.js";
+import {clearElementContainers,holdingElements} from "./main.js";
+import { Message } from "./components/message.js";
 
-export let gameSettings = document.getElementById("game-settings");
+export let gameSettings = document.getElementById("game-utilities");
 
+let message = new Message();
 let settings_options = [
   { name: "clean up", img: "bi bi-eraser", action: cleanUp },
   { name: "settings", img: "bi bi-sliders", action: viewSettings },
@@ -22,27 +24,27 @@ settings_options.forEach((option) => {
 });
 
 function cleanUp() {
-  location.reload();
+  // location.reload();
+  clearElementContainers()
 }
 
 function viewSettings() {
-  let settingsModule = document.createElement("div");
-  settingsModule.className = "settings-module";
-  gameSpace.appendChild(settingsModule);
+  message.displayMessage(
+    "Settings Feature Coming Soon! \n Control sounds, music and more!\n"
+  );
 }
 
+
 function viewEncyclopedia() {
-  let encyclopediaModule = document.createElement("div");
-  encyclopediaModule.className = "settings-module";
-  gameSpace.appendChild(encyclopediaModule);
-  encyclopediaModule.innerHTML = "Encyclopedia";
+  message.displayMessage(
+    "Encyclopedia Feature Coming Soon! \n Discover more about each element you’ve unlocked.\n"
+  );
 }
 
 function viewHints() {
-  let hintsModule = document.createElement("div");
-  hintsModule.className = "settings-module";
-  gameSpace.appendChild(hintsModule);
-  hintsModule.innerHTML = "Hints";
+  message.displayMessage(
+    "Hints Feature Coming Soon! \n -Get help if you're stuck!\n"
+  );
 }
 
 function playBkgMusic() {

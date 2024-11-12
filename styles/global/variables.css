@@ -1,0 +1,12 @@
+:root {
+  --sky_code_blue: #38b6ff;
+  --techno_violet: #8a2be2;
+  --midnight_stack: #310d50;
+  --golden_logic:#c9a928;
+  --midnight_frame:#1a1a1a;
+
+  --element_height: 100px;
+  --element_width: 100px;
+
+  --standard_border: 3px solid var(--midnight_frame);
+}

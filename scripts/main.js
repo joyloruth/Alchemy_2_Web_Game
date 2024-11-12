@@ -1,27 +1,13 @@
-import { Element, createdElements } from "./element.js";
+import { Element } from "./components/element.js";
+import { Message } from "./components/message.js";
 
 export let gameInventory = document.getElementById("game-inventory");
-export let gameSpace = document.getElementById("game-space");
+export let gamePlay = document.getElementById("game-play");
 
-// let primeElement;
-
-// primaryElements.forEach((primaryElement) => {
-//   primeElement = new Element(
-//     primaryElement.id,
-//     primaryElement.name,
-//     primaryElement.bkgImg,
-//     primaryElement.top,
-//     primaryElement.left
-//   );
-//   gameInventory.appendChild(primeElement)
-// });
-
+export let holdingElements;
 
 let clone;
-let element_discovered_container = document.getElementById("element-discovered");
-let element_discovered_name = document.getElementById("name");
-let element_discovered_image = document.getElementById("image");
-
+let message = new Message();
 let availableElements = [
   { id: "air", bkg: "gray" },
   { id: "water", bkg: "blue" },
@@ -36,22 +22,15 @@ function renderAvailableElements() {
   availableElements.sort((a, b) => a.id.localeCompare(b.id));
 
   availableElements.forEach((ele) => {
-    let availableElement = document.createElement("div");
-    availableElement.classList.add("element");
-    availableElement.innerText = ele.id;
-    availableElement.setAttribute("draggable", true);
-    availableElement.setAttribute("id", ele.id);
-    availableElement.style.backgroundImage = "url(/assets/images/" + ele.id + ".png)";
+    let availableElement = new Element(ele.id);
+    gameInventory.appendChild(availableElement.element);
 
-    gameInventory.appendChild(availableElement);
-
-    availableElement.addEventListener("dragstart", () => {
-      clone = availableElement.cloneNode(true);
+    availableElement.element.addEventListener("dragstart", () => {
+      clone = availableElement.element.cloneNode(true);
       clone.classList.add("dragging");
     });
 
-    availableElement.addEventListener("dragend", () => {
-    });
+    availableElement.element.addEventListener("dragend", () => {});
   });
 }
 
@@ -64,74 +43,105 @@ element_containers.forEach((element_container) => {
     event.preventDefault();
   });
 
- element_container.addEventListener("drop", (event) => {
+  element_container.addEventListener("drop", (event) => {
     event.preventDefault();
 
     if (!element_container.hasChildNodes()) {
       element_container.appendChild(clone);
-      
     }
     clone.classList.add("holding");
     clone.classList.remove("dragging");
 
     checkForCombination();
-    
   });
 });
 
 function checkForCombination() {
-  let holdingElements = Array.from(document.querySelectorAll(".holding"));
+  holdingElements = Array.from(document.querySelectorAll(".holding"));
   let id;
 
   let fire = holdingElements.some((element) => element.id === "fire");
   let water = holdingElements.some((element) => element.id === "water");
   let air = holdingElements.some((element) => element.id === "air");
   let earth = holdingElements.some((element) => element.id === "earth");
+  let mud = holdingElements.some((element) => element.id === "mud");
+  let wall = holdingElements.some((element) => element.id === "wall");
+  let brick = holdingElements.some((element) => element.id === "brick");
 
-  if (fire && water) {
-    id = "steam";
-    validateAndRenderElement(id);
-  } else if (air && earth) {
-    id = "dust";
-    validateAndRenderElement(id);
-  } else if (earth && fire) {
-    id = "lava";
-    validateAndRenderElement(id)
-  } else if (earth && water) {
-    id = "mud";
-    validateAndRenderElement(id)
+  let firstElement;
+  let secondElement;
+  let duplicate = false;
+
+  if (holdingElements[1]) {
+    firstElement = holdingElements[0].id;
+    secondElement = holdingElements[1].id;
+
+    if (firstElement === secondElement) {
+      duplicate = true;
+    }
+  }
+
+  if (holdingElements[1]) {
+    if (fire && water) {
+      id = "steam";
+      validateAndRenderElement(id);
+    } else if (air && earth) {
+      id = "dust";
+      validateAndRenderElement(id);
+    } else if (earth && fire) {
+      id = "lava";
+      validateAndRenderElement(id);
+    } else if (earth && water) {
+      id = "mud";
+      validateAndRenderElement(id);
+    } else if (fire && air) {
+      id = "smoke";
+      validateAndRenderElement(id);
+    } else if (fire && mud) {
+      id = "brick";
+      validateAndRenderElement(id);
+    } else if (duplicate == true && fire) {
+      id = "combustion";
+      validateAndRenderElement(id);
+    } else if (duplicate == true && brick) {
+      id = "wall";
+      validateAndRenderElement(id);
+    } else if (duplicate == true && wall) {
+      id = "home";
+      validateAndRenderElement(id);
+    } else {
+
+        message.displayMessage(
+          "Looks like you've discovered... disappointment.\n " +
+            holdingElements[0].id.toUpperCase() +
+            " and " +
+            holdingElements[1].id.toUpperCase() +
+            " don't mix well!  \n Try again! ")
+      
+      
+      clearElementContainers();
+    }
   }
 }
 
-function clearElementContainers() {
+export function clearElementContainers() {
   element_containers.forEach((element_container) => {
     element_container.removeChild(element_container.firstChild);
   });
+  holdingElements.splice(0, holdingElements.length);
 }
 
 function validateAndRenderElement(id) {
   if (availableElements.find((item) => item.id === id)) {
-    clearElementContainers()
+    message.displayMessage("already discovered.");
+    setTimeout(() => {
+      message.hideMessage();
+      clearElementContainers();
+    }, 1000);
   } else {
-    availableElements.push({ id: id});
+    availableElements.push({ id: id });
     renderAvailableElements();
-    displayDiscoveredElementContainer(id)
-     setTimeout(clearDiscoveredElementContainer, 2000);
-     setTimeout(clearElementContainers,2000)
+    message.displayDiscoveredElementModal(id);
+    setTimeout(clearElementContainers, 2000);
   }
-}
-
-
-//element_discovered_image.style.backgroundImage = "url(/assets/images/fire.png)";
-
-function clearDiscoveredElementContainer(){
-  element_discovered_image.style.backgroundImage = "none";
-  element_discovered_name.innerHTML = "";
-  element_discovered_container.style.display = "none";
-}
-
-function displayDiscoveredElementContainer(id){
-  element_discovered_image.style.backgroundImage = "url(/assets/images/" + id + ".png)";
-  element_discovered_name.innerHTML = id;
-  element_discovered_container.style.display = "flex";
 }
