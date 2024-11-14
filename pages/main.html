@@ -6,41 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alchemy Quest</title>
     <link rel="icon" type="image/x-icon" href="../assets/images/formula.png" />
-    
-    <link rel="stylesheet" href= "../styles/global/global.css" />
-    <link rel="stylesheet" href= "../styles/main.css" />
+
+    <link rel="stylesheet" href="../css/main.css" />
   </head>
   <body>
-
     <div id="game-board">
       <div id="game-inventory"></div>
       <div id="game-play">
-        <h1 style="position: absolute; top: 20%; z-index: 0; margin-inline: 30%;" id="title">Alchemy<br /><span>Quest</span></h1>
+        <h1
+          style="position: absolute; top: 20%; z-index: 0; margin-inline: 30%"
+          id="title"
+        >
+          Alchemy<br /><span>Quest</span>
+        </h1>
         <div id="containers">
           <div id="one" class="element-container"></div>
           <p id="plus">+</p>
-          <div id="two" class="element-container"></div> 
+          <div id="two" class="element-container"></div>
         </div>
       </div>
       <div id="game-utilities">
-         <!-- <audio id="background-music">
+        <!-- <audio id="background-music">
           <source src="/assets/sounds/bkg-music.wav" type="audio/wav"/>
         </audio> -->
       </div>
     </div>
-
-      
-
-
-      
-       
-    
-
-   
-
+    <script type="module" src="../javascript/main.js"></script>
+    <script type="module" src="../javascript/utils/utilites.js"></script>
+    <script type="module" src="../javascript/components/message.js"></script>
+    <script type="module" src="../javascript/utils/toggle.js"></script>
   </body>
-  <script type="module" src="/scripts/main.js"></script>
-  <script type="module" src="/scripts/utilites.js"></script>
-  <script type="module" src="/scripts/components/message.js"></script>
-  <script type="module" src="/scripts/toggle.js"></script>
 </html>

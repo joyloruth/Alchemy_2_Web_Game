@@ -1,5 +1,5 @@
-import {clearElementContainers,holdingElements} from "./main.js";
-import { Message } from "./components/message.js";
+import {clearElementContainers,holdingElements} from "../main.js";
+import { Message } from "../components/message.js";
 
 export let gameSettings = document.getElementById("game-utilities");
 

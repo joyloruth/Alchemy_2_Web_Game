@@ -1,5 +1,3 @@
-// import { gameSpace } from "../main.js";
-
 export class Message {
   constructor(id) {
     this.id = id;
@@ -48,7 +46,7 @@ export class Message {
 
   displayDiscoveredElementModal(id) {
     this.modalImg.style.backgroundImage =
-      "url('/assets/images/" + id + ".png')";
+      "url('../assets/images/" + id + ".png')";
     this.modalMessage.innerHTML = id;
     this.modal.appendChild(this.modalImg);
     this.modal.appendChild(this.modalMessage);

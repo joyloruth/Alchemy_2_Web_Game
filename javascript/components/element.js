@@ -6,8 +6,10 @@ export class Element {
     this.element = document.createElement("div");
     this.element.setAttribute("id", id);
     this.element.innerText = id;
-    this.element.style.backgroundImage = "url('/assets/images/" + id + ".png')";
+    this.element.style.backgroundImage = "url('../assets/images/" + id + ".png')";
     this.element.classList.add("element");
     this.element.setAttribute("draggable", true);
   }
+
+  
 }

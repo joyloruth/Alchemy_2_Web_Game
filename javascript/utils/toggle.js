@@ -1,6 +1,6 @@
-import { gameInventory, gamePlay} from "./main.js";
+import { gameInventory, gamePlay} from "../main.js";
 
-import { gameSettings} from "./utilites.js";
+import { gameSettings} from "../utils/utilites.js";
 
 
 /*Toggles Day and Night Mode */
@@ -29,7 +29,6 @@ function viewDayMode() {
   gamePlay.style.backgroundColor = "#8a2be2";
   gameSettings.style.transition = "all 1s ease-in";
   gamePlay.style.transition = "all 1s ease-in ";
-  // gameInventory.style.backgroundColor = "yellow";
   gameInventory.style.backgroundColor = "#38b6ff";
   gameInventory.style.boxShadow = "1px 1px 10px black";
 }
@@ -44,7 +43,6 @@ function viewNightMode() {
   gameSettings.style.transition = "all 1s ease-in";
   gamePlay.style.transition = "all 1s ease-in";
   gameInventory.style.backgroundColor = "black";
-  // gameInventory.style.backgroundColor = "black";
   gameInventory.style.transition = "all .5s ease-in";
   gameInventory.style.boxShadow = "1px 1px 5px gold";
 }

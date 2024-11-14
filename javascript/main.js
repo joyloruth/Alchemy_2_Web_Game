@@ -1,5 +1,6 @@
-import { Element } from "./components/element.js";
-import { Message } from "./components/message.js";
+import { Element } from "../javascript/components/element.js";
+import { Message } from "../javascript/components/message.js"; 
+
 
 export let gameInventory = document.getElementById("game-inventory");
 export let gamePlay = document.getElementById("game-play");

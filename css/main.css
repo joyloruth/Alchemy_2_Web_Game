@@ -1,6 +1,17 @@
+@import url('../css/theme/animations.css');
+@import url('../css/theme/fonts.css');
+@import url('../css/theme/variables.css');
+
+@import url('../css/components/container.css');
+@import url('../css/components/loader.css');
+@import url('../css/components/element.css');
+@import url('../css/components/message.css');
+
+@import url('../css/utils/utilities.css');
+
+
 * {
   margin: 0px;
-  /* background-color: var(--midnight_stack); */
 }
 
 #game-board {
