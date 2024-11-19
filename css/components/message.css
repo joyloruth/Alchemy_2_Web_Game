@@ -64,10 +64,24 @@
   color: var(--golden_logic);
   position:absolute;
   top: 0;
-
   opacity: 0;
   align-items: center;
   justify-content: center;
   z-index: 9;
   transition: all 11s ease-in-out;
+}
+
+.modal.discoveredElements{
+  background-color: var(--golden_logic);
+  color: black;
+  font-size: 40px;
+}
+
+.modal.discoveredElements::before{
+  background-color: (var(--golden_logic));
+  color:white;
+  text-align: center;
+  content: "New Element Discovered:";
+  padding-bottom: 10px;
+  font-size: 20px;
 }

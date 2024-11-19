@@ -3,7 +3,7 @@ export class Message {
     this.id = id;
 
     this.modal = document.createElement("div");
-    this.modal.className = "modal";
+    this.modal.classList.add("modal");
 
     this.modalMessage = document.createElement("div");
     this.modalMessage.className = "modalMessage";
@@ -15,7 +15,7 @@ export class Message {
     this.modal.append(this.modalExitButton);
 
     this.modalImg = document.createElement("div");
-    this.modalImg.className = "modalImg";
+    this.modalImg.classList.add("modalImg");
 
     this.modalOverlay = document.createElement("div");
     this.modalOverlay.className = "modalOverlay";
@@ -50,20 +50,14 @@ export class Message {
     this.modalMessage.innerHTML = id;
     this.modal.appendChild(this.modalImg);
     this.modal.appendChild(this.modalMessage);
-    this.modal.style.top = "25%";
+    this.modal.style.top = "15%";
+    this.modal.style.height = "200px"
+    this.modal.style.borderRadius = "20px"
     document.body.appendChild(this.modalOverlay);
     this.modalOverlay.appendChild(this.modal);
     this.modalOverlay.style.opacity = 1;
-    this.modal.style.width = 
     this.modal.style.transition = "all .5s linear";
+    this.modal.classList.add("discoveredElements")
   }
 
-  // disappearDiscoveredElementModal(id) {
-  //   this.modal.style.opacity = 0;
-  //   this.modal.style.transition = "all .5s linear";
-  //   this.modal.appendChild(this.modalImg);
-  //   this.modal.appendChild(this.modalExitButton);
-  //   gameSpace.appendChild(this.modal);
-  //   document.body.appendChild(this.modalOverlay);
-  // }
 }

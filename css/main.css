@@ -12,6 +12,9 @@
 
 * {
   margin: 0px;
+  user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
 }
 
 #game-board {
@@ -26,7 +29,7 @@
   background-color: var(--sky_code_blue);
   width: var(--element_width);
   padding: 10px;
-  width: 130px;
+  width: 140px;
   height: 90%;
   position: absolute;
   flex-direction: column;
@@ -40,20 +43,20 @@
   top:5%;
   left: 10px;
   box-shadow: 0px 3px 10px black;
-  border-radius: 10px;
+  border-radius: 15px;
   z-index: 1;
 }
 
 #game-inventory::-webkit-scrollbar {
-  width: 8px;
+  width: 15px;
 }
 
 #game-inventory::-webkit-scrollbar-track {
-  background-color: var(--midnight_stack);
+  background-color: var(--sky_code_blue);
 }
 
 #game-inventory::-webkit-scrollbar-thumb {
-  background-color: var(--golden_logic);
+  background-color: var(--midnight_stack);
   border-radius: 4px;
   box-shadow: 3px 3px 3px black;
   border: 2px solid black;

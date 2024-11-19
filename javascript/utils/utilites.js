@@ -1,19 +1,19 @@
-import {clearElementContainers,holdingElements} from "../main.js";
 import { Message } from "../components/message.js";
-
 export let gameSettings = document.getElementById("game-utilities");
 
 let message = new Message();
-let settings_options = [
-  { name: "clean up", img: "bi bi-eraser", action: cleanUp },
-  { name: "settings", img: "bi bi-sliders", action: viewSettings },
-  { name: "encyclopedia", img: "bi bi-journal-plus", action: viewEncyclopedia },
-  { name: "hints", img: "bi bi-lightbulb", action: viewHints },
-];
 
+let settings_options = [
+  { name: "Reset Game", img: "bi bi-eraser", action: cleanUp },
+  { name: "Settings", img: "bi bi-sliders", action: viewSettings },
+  { name: "Encyclopedia", img: "bi bi-journal-plus", action: viewEncyclopedia },
+  { name: "Hints", img: "bi bi-lightbulb", action: viewHints },
+];
+let i;
 settings_options.forEach((option) => {
   let settings_option = document.createElement("div");
-  let i = document.createElement("i");
+  i = document.createElement("i");
+  i.style.paddingBottom = "10px"
   settings_option.className = "settings-option";
   settings_option.innerText = option.name;
   settings_option.append(i);
@@ -24,16 +24,19 @@ settings_options.forEach((option) => {
 });
 
 function cleanUp() {
-  // location.reload();
-  clearElementContainers()
+  for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i)
+    localStorage.clear()
+    location.reload();
+  }
 }
 
 function viewSettings() {
+
   message.displayMessage(
     "Settings Feature Coming Soon! \n Control sounds, music and more!\n"
   );
 }
-
 
 function viewEncyclopedia() {
   message.displayMessage(
@@ -47,10 +50,10 @@ function viewHints() {
   );
 }
 
-function playBkgMusic() {
-  let bkgMusic = document.getElementById("background-music");
-  bkgMusic.play();
-  bkgMusic.loop = true;
-}
+// function playBkgMusic() {
+//   let bkgMusic = document.getElementById("background-music");
+//   bkgMusic.play();
+//   bkgMusic.loop = true;
+// }
 
-//window.playBkgMusic = playBkgMusic();
+// //window.playBkgMusic = playBkgMusic();
