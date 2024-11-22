@@ -63,6 +63,7 @@
 .loader-image {
   transform: scale(0);
   animation-fill-mode: forwards;
+  width: 55px;
 }
 .loader-image:first-child {
   animation: mix 1s ease-in-out;

@@ -46,7 +46,7 @@ i:hover {
 }
 
 .toggle-btn {
-  background-color: blue;
+  background-color: rgba(0, 0, 255, 0.234);
   width: 50%;
   height: 90%;
   margin: 1px;

@@ -1,9 +1,8 @@
-import { gameInventory} from "../main.js";
+import { gameInventory } from "../main.js";
 import { checkElementCombination } from "./combinations.js";
 
 let clone;
 export let element_containers = document.querySelectorAll(".element-container");
-
 
 export class Element {
   constructor(id) {
@@ -15,10 +14,11 @@ export class Element {
     this.element.innerText = id;
     this.element.style.backgroundImage =
       "url('../assets/images/" + id + ".png')";
-    this.element.setAttribute('alt', "Image of "+ id)
+    this.element.setAttribute("alt", "Image of " + id);
     this.element.classList.add("element");
     this.element.setAttribute("draggable", true);
     this.dragElement();
+    this.addElement();
   }
 
   dragElement(event) {
@@ -26,22 +26,40 @@ export class Element {
       clone = this.element.cloneNode(true);
       clone.classList.add("dragging");
     });
+
     this.element.addEventListener("dragend", () => {
       clone.classList.remove("dragging");
     });
 
     element_containers.forEach((element_container) => {
       element_container.addEventListener("dragover", (event) => {
-        event.preventDefault()
+        event.preventDefault();
       });
-      
-      element_container.addEventListener("drop", (event)=>{
+
+      element_container.addEventListener("drop", (event) => {
         if (!element_container.hasChildNodes()) {
           element_container.appendChild(clone);
           clone.classList.remove("dragging");
           clone.classList.add("holding");
 
-          checkElementCombination()
+          checkElementCombination();
+        }
+      });
+    });
+  }
+
+  addElement() {
+    this.element.addEventListener("click", () => {
+      clone = this.element.cloneNode(true);
+      clone.classList.add("dragging");
+      console.log("touchstart");
+      element_containers.forEach((element_container) => {
+        if (!element_container.hasChildNodes()) {
+          element_container.appendChild(clone);
+          clone.classList.remove("dragging");
+          clone.classList.add("holding");
+
+          checkElementCombination();
         }
       });
     });
@@ -60,26 +78,24 @@ export class Element {
     }
   }
 
-  static renderStartingElements(){
+  static renderStartingElements() {
     let startingElements = [
       { id: "air" },
       { id: "water" },
       { id: "fire" },
-      { id: "earth" }
+      { id: "earth" },
     ];
     startingElements.forEach((element) => {
-      localStorage.setItem(element.id,element.id)
-    })
+      localStorage.setItem(element.id, element.id);
+    });
   }
 
   static renderAllElements() {
-    Element.renderStartingElements()
-    
+    Element.renderStartingElements();
+
     for (let i = 0; i < localStorage.length; i++) {
       let key = localStorage.key(i);
       Element.renderElement(key);
     }
   }
 }
-
-
