@@ -28,7 +28,7 @@ export class Message {
     this.modalOverlay.style.transition = "all 1s ease";
     this.modalOverlay.appendChild(this.modal);
     document.body.appendChild(this.modalOverlay);
-    document.body.appendChild(this.modalOverlay);
+    // document.body.appendChild(this.modalOverlay);
     setTimeout(() => {
       this.modal.style.top = "25%";
       this.modal.style.transition = "all .5s ease-in";
@@ -37,7 +37,7 @@ export class Message {
 
   hideMessage() {
     this.modal.style.top = "-25%";
-    this.modalOverlay.style.transition = "all .5s ease";    
+    this.modalOverlay.style.transition = "all .5s ease";
     setTimeout(() => {
       this.modalOverlay.style.opacity = "0";
       document.body.removeChild(this.modalOverlay);
@@ -51,13 +51,21 @@ export class Message {
     this.modal.appendChild(this.modalImg);
     this.modal.appendChild(this.modalMessage);
     this.modal.style.top = "15%";
-    this.modal.style.height = "200px"
-    this.modal.style.borderRadius = "20px"
+    this.modal.style.height = "200px";
+    this.modal.style.borderRadius = "20px";
     document.body.appendChild(this.modalOverlay);
     this.modalOverlay.appendChild(this.modal);
     this.modalOverlay.style.opacity = 1;
     this.modal.style.transition = "all .5s linear";
-    this.modal.classList.add("discoveredElements")
+    this.modal.classList.add("discoveredElements");
+  }
+
+  displaySystemMessage(attribute,message){
+    this.modal.setAttribute('id', attribute);
+    this.modal.appendChild(this.modalMessage);
+    this.modal.innerHTML = message;
+    this.modalOverlay.appendChild(this.modal);
+    document.body.appendChild(this.modalOverlay);
   }
 
 }

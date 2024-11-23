@@ -33,7 +33,6 @@
   overflow-y: scroll;
   height: 90%;
   width: 85%;
- 
 }
 
 #game-play {
@@ -61,18 +60,18 @@
   background-color: rgba(231, 217, 217, 0.216);
   border-radius: 15px;
   width: 15px;
-  border:var(--standardborder);
- } 
+  border: var(--standardborder);
+}
 
 #game-inventory::-webkit-scrollbar-track {
   background-color: rgba(231, 217, 217, 0.216);
   border-radius: 15px;
-  border:var(--standard_border);
+  border: var(--standard_border);
 }
 
 #game-inventory::-webkit-scrollbar-thumb {
   background-color: var(--midnight_stack);
-  border-radius: 15px;
+  border-radius: 15px !important;
   border: 2px solid black;
 }
 
@@ -102,34 +101,14 @@
   justify-content: center;
 }
 
-
-/* ----------- */
+#device {
+  display: flex;
+  background-color: yellowgreen;
+}
 
 /* makes view responsive
-@media (max-width: 600px) {
-  #game-play {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 1;
-    box-sizing: border-box;
-  }
-  #title:first-child {
-    font-size: 40px;
-  }
-
-  #title:first-child span:first-child {
-    color: var(--golden_logic);
-    font-size: 3px;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #1d1806;
-    line-height: 0.5;
-  }
-} */
-
-/* Iphone 390 X 667 */
- @media (max-width: 400px) { 
+/* mobile 300 X 480 */
+@media only screen and (min-device-width: 315px) and (max-device-width: 615px) and (orientation: portrait) {
   #game-board {
     background-color: var(--golden_logic);
     display: grid;
@@ -138,15 +117,21 @@
     grid-template-areas:
       "utils utils"
       "inventory play";
+    height: 100vh;
   }
-   #game-inventory-container{
+
+  #game-inventory-container {
     grid-area: inventory;
     display: flex;
     align-items: center;
     justify-content: center;
-
+    height: 90vh;
   }
-
+  #game-inventory {
+    flex-direction: column;
+    overflow: scroll;
+    height: 90%;
+  }
   #game-play {
     grid-area: play;
     display: flex;
@@ -173,7 +158,7 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-  } 
+  }
 
   #title:first-child {
     color: var(--sky_code_blue);
@@ -234,21 +219,35 @@
   .element {
     width: var(--element_width);
     height: var(--element_height);
-    scale: .9;
+    scale: 0.9;
   }
 
   .theme-toggle {
     background-color: rgb(233, 245, 245);
     width: 50px;
-    height: 25px;
+    height: 20px;
     display: flex;
     border-radius: 30px;
     align-items: center;
     justify-content: center;
-    margin-top: 40px;
+    margin-bottom: 75px;
+    margin: 10px;
     position: relative;
     transition: all 1s ease-in-out;
     box-shadow: inset 1px 1px 5px rgb(0, 0, 0);
+    border: 2px gold solid;
   }
-} 
+}
 
+@media only screen and (max-device-width: 315px) {
+  body {
+    background-color: #1d1806;
+  }
+  #game-board {
+    display: none;
+  }
+  #game-board::before {
+    content: "test";
+    color: rgb(247, 246, 243);
+  }
+}

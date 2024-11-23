@@ -3,13 +3,11 @@ import { Message } from "../javascript/components/message.js";
 
 export let gameInventory = document.getElementById("game-inventory");
 export let gamePlay = document.getElementById("game-play");
-const holdingElements = Array.from(document.querySelectorAll('.holding'));
-// export let holdingElements;
+const holdingElements = Array.from(document.querySelectorAll(".holding"));
 
-// let clone;
 let message = new Message();
-let element = new Element()
+let element = new Element();
 
-document.addEventListener("DOMContentLoaded", ()=>{
-  Element.renderAllElements()
-})
+document.addEventListener("DOMContentLoaded", () => {
+  Element.renderAllElements();
+});

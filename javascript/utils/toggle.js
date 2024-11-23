@@ -1,5 +1,5 @@
 import { gameInventory, gamePlay} from "../main.js";
-
+let gameInventoryContainer = document.getElementById('game-inventory-container')
 import { gameSettings} from "../utils/utilites.js";
 
 
@@ -29,9 +29,8 @@ function viewDayMode() {
   gamePlay.style.backgroundColor = "#8a2be2";
   gameSettings.style.transition = "all 1s ease-in";
   gamePlay.style.transition = "all 1s ease-in ";
-  gameInventory.style.backgroundColor = "#38b6ff";
-  gameInventory.style.boxShadow = "1px 1px 10px black";
-}
+  gameInventoryContainer.style.backgroundColor = "#38b6ff";
+  }
 
 function viewNightMode() {
   nightMode.style.display = "none";
@@ -42,7 +41,7 @@ function viewNightMode() {
   gameSettings.style.boxShadow = "1px 1px 10px gold";
   gameSettings.style.transition = "all 1s ease-in";
   gamePlay.style.transition = "all 1s ease-in";
-  gameInventory.style.backgroundColor = "black";
-  gameInventory.style.transition = "all .5s ease-in";
-  gameInventory.style.boxShadow = "1px 1px 5px gold";
+  gameInventoryContainer.style.backgroundColor = "black";
+  gameInventoryContainer.style.transition = "all .5s ease-in";
+  gameInventoryContainer.style.boxShadow = "1px 1px 5px gold";
 }

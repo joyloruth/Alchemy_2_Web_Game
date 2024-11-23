@@ -1,14 +1,5 @@
 // this page serves as a place holder for previous logic that may or may not be recycled
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   // let startingElements = [
-//   //   { id: "air" },
-//   //   { id: "water" },
-//   //   { id: "fire" },
-//   //   { id: "earth" },
-//   // ];
-//   // loadStartingElements();
-  
 //   Element.renderAllElements()
 // });
 
@@ -122,17 +113,6 @@
 // });
 
 
-// setInterval(() => {
-//   const holdingElements = Array.from(document.querySelectorAll('.holding'));
-//   console.log(holdingElements);
-// }, 1000); 
-
-
-// function checkForCombination() {
-
-
-
-// let id;
 
 // let fire = holdingElements.some((element) => element.id === "fire");
 // let water = holdingElements.some((element) => element.id === "water");
